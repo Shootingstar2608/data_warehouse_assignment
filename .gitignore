@@ -1,0 +1,10 @@
+# Ignore java folder
+java/
+
+# Ignore pentaho folder
+pentaho/
+
+# Ignore all CSV files
+*.csv
+data/raw/*.csv
+data/processed/*.csv
