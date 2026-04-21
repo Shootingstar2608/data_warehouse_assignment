@@ -1,0 +1,468 @@
+2026-04-17 16:47:27.885 INFO  <Thread-22> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 16:47:28.094 INFO  <init of update fact.0 (Thread-29)> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Connected to database [pentahoConnect] (commit=1000)
+2026-04-17 16:54:19.653 INFO  <Thread-40> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 16:54:19.697 INFO  <init of update fact.0 (Thread-47)> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Connected to database [pentahoConnect] (commit=1000)
+2026-04-17 16:54:29.641 INFO  <Thread-57> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 16:54:29.724 INFO  <init of update fact.0 (Thread-65)> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Connected to database [pentahoConnect] (commit=1000)
+2026-04-17 16:54:29.829 INFO  <water_etl_pipeline - CSV file input> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Header row skipped in file '/home/toon/data_warehouse_assignment/data/raw/water_potability.csv'
+2026-04-17 16:54:30.045 INFO  <water_etl_pipeline - CSV file input> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026-04-17 16:54:30.050 INFO  <water_etl_pipeline - If field value is null> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:30.053 INFO  <water_etl_pipeline - Number range> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:30.060 INFO  <water_etl_pipeline - Number range 2> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:30.069 INFO  <water_etl_pipeline - update dim_hardness> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:30.070 INFO  <water_etl_pipeline - update dim_acidity> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:30.826 INFO  <water_etl_pipeline - Dim_potability lookup> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:30.883 INFO  <water_etl_pipeline - update fact> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:51.340 INFO  <Thread-76> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 16:54:51.387 INFO  <init of update fact.0 (Thread-84)> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Connected to database [pentahoConnect] (commit=1000)
+2026-04-17 16:54:51.464 INFO  <water_etl_pipeline - CSV file input> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Header row skipped in file '/home/toon/data_warehouse_assignment/data/raw/water_potability.csv'
+2026-04-17 16:54:51.630 INFO  <water_etl_pipeline - CSV file input> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026-04-17 16:54:51.633 INFO  <water_etl_pipeline - If field value is null> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:51.636 INFO  <water_etl_pipeline - Number range> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:51.641 INFO  <water_etl_pipeline - update dim_hardness> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:51.644 INFO  <water_etl_pipeline - Number range 2> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:51.647 INFO  <water_etl_pipeline - update dim_acidity> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:52.258 INFO  <water_etl_pipeline - Dim_potability lookup> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 16:54:52.327 INFO  <water_etl_pipeline - update fact> [/home/toon/data_warehouse_assignment/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026-04-17 22:53:08.918 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 22:53:09.209 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  An error occurred intialising this step: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+
+
+2026-04-17 22:53:09.209 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+
+
+2026-04-17 22:53:09.209 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  An error cause this step to stop: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+
+
+2026-04-17 22:53:09.209 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+Connection to 127.0.0.1:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+
+
+2026-04-17 22:53:09.210 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Error initializing step [Dim_potability lookup]
+2026-04-17 22:53:09.210 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_hardness]
+2026-04-17 22:53:09.210 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_acidity]
+2026-04-17 22:53:09.212 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update fact]
+2026-04-17 22:53:09.213 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_hardness.0] failed to initialize!
+2026-04-17 22:53:09.213 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_acidity.0] failed to initialize!
+2026-04-17 22:53:09.214 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [Dim_potability lookup.0] failed to initialize!
+2026-04-17 22:53:09.214 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update fact.0] failed to initialize!
+2026-04-17 22:53:09.215 ERROR <main> [/etl/water_etl_pipeline.ktr]  Unexpected error rolling back the database connection.
+2026-04-17 22:53:09.217 ERROR <main> [/etl/water_etl_pipeline.ktr]  org.pentaho.di.core.exception.KettleDatabaseException: 
+Unable to get database metadata from this database connection
+
+Error connecting to database [water_pobability]
+
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3121)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:912)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:904)
+	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:625)
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1272)
+	at org.pentaho.di.pan.PanCommandExecutor.execute(PanCommandExecutor.java:200)
+	at org.pentaho.di.pan.Pan.main(Pan.java:274)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error connecting to database [water_pobability]
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3115)
+	... 11 more
+
+2026-04-17 23:03:21.714 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:03:21.759 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Database connection is missing for step [update dim_hardness]!
+2026-04-17 23:03:21.759 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Database connection is missing for step [update dim_acidity]!
+2026-04-17 23:03:21.759 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_hardness]
+2026-04-17 23:03:21.759 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_acidity]
+2026-04-17 23:03:21.761 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update fact]
+2026-04-17 23:03:21.762 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Database connection is missing for step [Dim_potability lookup]!
+2026-04-17 23:03:21.763 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Error initializing step [Dim_potability lookup]
+2026-04-17 23:03:21.763 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  java.lang.NullPointerException: Cannot invoke "org.pentaho.di.core.database.DatabaseMeta.getDatabaseInterface()" because "this.data.databaseMeta" is null
+	at org.pentaho.di.trans.steps.tableoutput.TableOutput.init(TableOutput.java:479)
+	at org.pentaho.di.trans.step.StepInitThread.run(StepInitThread.java:69)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+2026-04-17 23:03:21.764 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_hardness.0] failed to initialize!
+2026-04-17 23:03:21.765 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_acidity.0] failed to initialize!
+2026-04-17 23:03:21.765 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [Dim_potability lookup.0] failed to initialize!
+2026-04-17 23:03:21.766 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update fact.0] failed to initialize!
+2026-04-17 23:05:35.721 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:05:36.314 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  An error occurred intialising this step: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:05:36.316 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  An error cause this step to stop: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:05:36.316 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:05:36.316 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:05:36.317 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_acidity]
+2026-04-17 23:05:36.317 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Error initializing step [Dim_potability lookup]
+2026-04-17 23:05:36.318 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_hardness]
+2026-04-17 23:05:36.321 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update fact]
+2026-04-17 23:05:36.323 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_hardness.0] failed to initialize!
+2026-04-17 23:05:36.324 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_acidity.0] failed to initialize!
+2026-04-17 23:05:36.324 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [Dim_potability lookup.0] failed to initialize!
+2026-04-17 23:05:36.325 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update fact.0] failed to initialize!
+2026-04-17 23:05:36.327 ERROR <main> [/etl/water_etl_pipeline.ktr]  Unexpected error rolling back the database connection.
+2026-04-17 23:05:36.330 ERROR <main> [/etl/water_etl_pipeline.ktr]  org.pentaho.di.core.exception.KettleDatabaseException: 
+Unable to get database metadata from this database connection
+
+Error connecting to database [water_pobability]
+
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3121)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:912)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:904)
+	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:625)
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1272)
+	at org.pentaho.di.pan.PanCommandExecutor.execute(PanCommandExecutor.java:200)
+	at org.pentaho.di.pan.Pan.main(Pan.java:274)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error connecting to database [water_pobability]
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3115)
+	... 11 more
+
+2026-04-17 23:07:52.003 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:07:52.577 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  An error occurred intialising this step: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:07:52.579 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:07:52.580 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update fact]
+2026-04-17 23:07:52.580 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  An error cause this step to stop: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:07:52.581 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_acidity]
+2026-04-17 23:07:52.580 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:07:52.582 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_hardness]
+2026-04-17 23:07:52.582 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Error initializing step [Dim_potability lookup]
+2026-04-17 23:07:52.583 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_hardness.0] failed to initialize!
+2026-04-17 23:07:52.584 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_acidity.0] failed to initialize!
+2026-04-17 23:07:52.585 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [Dim_potability lookup.0] failed to initialize!
+2026-04-17 23:07:52.585 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update fact.0] failed to initialize!
+2026-04-17 23:07:52.587 ERROR <main> [/etl/water_etl_pipeline.ktr]  Unexpected error rolling back the database connection.
+2026-04-17 23:07:52.590 ERROR <main> [/etl/water_etl_pipeline.ktr]  org.pentaho.di.core.exception.KettleDatabaseException: 
+Unable to get database metadata from this database connection
+
+Error connecting to database [water_pobability]
+
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3121)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:912)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:904)
+	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:625)
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1272)
+	at org.pentaho.di.pan.PanCommandExecutor.execute(PanCommandExecutor.java:200)
+	at org.pentaho.di.pan.Pan.main(Pan.java:274)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error connecting to database [water_pobability]
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3115)
+	... 11 more
+
+2026-04-17 23:09:28.016 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:09:28.498 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  An error occurred intialising this step: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:09:28.501 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:09:28.502 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:09:28.502 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_acidity]
+2026-04-17 23:09:28.502 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_hardness]
+2026-04-17 23:09:28.501 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  An error cause this step to stop: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: password authentication failed for user "postgres"
+
+
+2026-04-17 23:09:28.503 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Error initializing step [Dim_potability lookup]
+2026-04-17 23:09:28.510 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update fact]
+2026-04-17 23:09:28.511 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_hardness.0] failed to initialize!
+2026-04-17 23:09:28.513 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_acidity.0] failed to initialize!
+2026-04-17 23:09:28.513 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [Dim_potability lookup.0] failed to initialize!
+2026-04-17 23:09:28.514 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update fact.0] failed to initialize!
+2026-04-17 23:09:28.515 ERROR <main> [/etl/water_etl_pipeline.ktr]  Unexpected error rolling back the database connection.
+2026-04-17 23:09:28.518 ERROR <main> [/etl/water_etl_pipeline.ktr]  org.pentaho.di.core.exception.KettleDatabaseException: 
+Unable to get database metadata from this database connection
+
+Error connecting to database [water_pobability]
+
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3121)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:912)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:904)
+	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:625)
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1272)
+	at org.pentaho.di.pan.PanCommandExecutor.execute(PanCommandExecutor.java:200)
+	at org.pentaho.di.pan.Pan.main(Pan.java:274)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error connecting to database [water_pobability]
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3115)
+	... 11 more
+
+2026-04-17 23:12:54.255 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:12:55.294 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  An error occurred intialising this step: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: database "water_pobability" does not exist
+
+
+2026-04-17 23:12:55.296 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: database "water_pobability" does not exist
+
+
+2026-04-17 23:12:55.296 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Unable to connect to database: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: database "water_pobability" does not exist
+
+
+2026-04-17 23:12:55.298 ERROR <init of update dim_acidity.0 (Thread-11)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_acidity]
+2026-04-17 23:12:55.299 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  An error cause this step to stop: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error occurred while trying to connect to the database
+
+Connection failed. Verify all connection parameters and confirm that the appropriate driver is installed.
+FATAL: database "water_pobability" does not exist
+
+
+2026-04-17 23:12:55.299 ERROR <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update fact]
+2026-04-17 23:12:55.300 ERROR <init of update dim_hardness.0 (Thread-9)> [/etl/water_etl_pipeline.ktr]  Error initializing step [update dim_hardness]
+2026-04-17 23:12:55.301 ERROR <init of Dim_potability lookup.0 (Thread-12)> [/etl/water_etl_pipeline.ktr]  Error initializing step [Dim_potability lookup]
+2026-04-17 23:12:55.302 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_hardness.0] failed to initialize!
+2026-04-17 23:12:55.303 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update dim_acidity.0] failed to initialize!
+2026-04-17 23:12:55.304 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [Dim_potability lookup.0] failed to initialize!
+2026-04-17 23:12:55.304 ERROR <main> [/etl/water_etl_pipeline.ktr]  Step [update fact.0] failed to initialize!
+2026-04-17 23:12:55.305 ERROR <main> [/etl/water_etl_pipeline.ktr]  Unexpected error rolling back the database connection.
+2026-04-17 23:12:55.308 ERROR <main> [/etl/water_etl_pipeline.ktr]  org.pentaho.di.core.exception.KettleDatabaseException: 
+Unable to get database metadata from this database connection
+
+Error connecting to database [water_pobability]
+
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3121)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:912)
+	at org.pentaho.di.core.database.Database.rollback(Database.java:904)
+	at org.pentaho.di.trans.steps.tableoutput.TableOutput.dispose(TableOutput.java:625)
+	at org.pentaho.di.trans.Trans.prepareExecution(Trans.java:1272)
+	at org.pentaho.di.pan.PanCommandExecutor.execute(PanCommandExecutor.java:200)
+	at org.pentaho.di.pan.Pan.main(Pan.java:274)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+Caused by: org.pentaho.di.core.exception.KettleDatabaseException: 
+Error connecting to database [water_pobability]
+
+	at org.pentaho.di.core.database.Database.getDatabaseMetaData(Database.java:3115)
+	... 11 more
+
+2026-04-17 23:16:07.457 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:16:08.539 INFO  <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Connected to database [data_warehouse] (commit=1000)
+2026-04-17 23:16:08.637 ERROR <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Unexpected error
+2026-04-17 23:16:08.650 ERROR <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  org.pentaho.di.core.exception.KettleFileException: 
+
+An error occurred while creating field mapping
+Could not read from "file:///home/toon/data_warehouse_assignment/data/raw/water_potability.csv" because it is not a file.
+
+Could not read from "file:///home/toon/data_warehouse_assignment/data/raw/water_potability.csv" because it is not a file.
+
+	at org.pentaho.di.trans.steps.csvinput.CsvInput.readFieldNamesFromFile(CsvInput.java:481)
+	at org.pentaho.di.trans.steps.csvinput.CsvInput.createFieldMapping(CsvInput.java:445)
+	at org.pentaho.di.trans.steps.csvinput.CsvInput.openNextFile(CsvInput.java:334)
+	at org.pentaho.di.trans.steps.csvinput.CsvInput.processRow(CsvInput.java:137)
+	at org.pentaho.di.trans.step.RunThread.run(RunThread.java:62)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: org.apache.commons.vfs2.FileNotFoundException: Could not read from "file:///home/toon/data_warehouse_assignment/data/raw/water_potability.csv" because it is not a file.
+	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1202)
+	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1185)
+	at org.apache.commons.vfs2.provider.DefaultFileContent.buildInputStream(DefaultFileContent.java:503)
+	at org.apache.commons.vfs2.provider.DefaultFileContent.getInputStream(DefaultFileContent.java:345)
+	at org.pentaho.di.core.vfs.KettleVFS.getInputStream(KettleVFS.java:340)
+	at org.pentaho.di.trans.steps.csvinput.CsvInput.readFieldNamesFromFile(CsvInput.java:461)
+	... 5 more
+Caused by: java.io.FileNotFoundException: /home/toon/data_warehouse_assignment/data/raw/water_potability.csv (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(Unknown Source)
+	at java.base/java.io.FileInputStream.<init>(Unknown Source)
+	at org.apache.commons.vfs2.provider.local.LocalFile.doGetInputStream(LocalFile.java:107)
+	at org.apache.commons.vfs2.provider.AbstractFileObject.getInputStream(AbstractFileObject.java:1198)
+	... 10 more
+
+2026-04-17 23:16:08.670 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=0, W=0, U=0, E=1)
+2026-04-17 23:16:08.674 WARN  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Transformation detected one or more steps with errors.
+2026-04-17 23:16:08.681 WARN  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Transformation is killing the other steps!
+2026-04-17 23:19:25.230 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:19:25.681 INFO  <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Connected to database [data_warehouse] (commit=1000)
+2026-04-17 23:19:25.763 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Header row skipped in file '/data/raw/water_potability.csv'
+2026-04-17 23:19:26.330 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026-04-17 23:19:26.341 INFO  <water_etl_pipeline - If field value is null> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:26.345 INFO  <water_etl_pipeline - Number range> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:26.361 INFO  <water_etl_pipeline - update dim_hardness> [/etl/water_etl_pipeline.ktr]  Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:26.367 INFO  <water_etl_pipeline - Number range 2> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:26.376 INFO  <water_etl_pipeline - update dim_acidity> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:27.584 INFO  <water_etl_pipeline - Dim_potability lookup> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:27.973 INFO  <water_etl_pipeline - update fact> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:19:27.990 INFO  <main> [/etl/water_etl_pipeline.ktr]   
+2026-04-17 23:19:27.991 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step CSV file input.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:27.992 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step If field value is null.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:27.993 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:27.995 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_hardness.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:27.995 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range 2.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:27.995 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_acidity.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:27.999 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Dim_potability lookup.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:19:28.001 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update fact.0 ended successfully, processed 3276 lines. ( 1638 lines/s)
+2026-04-17 23:45:13.979 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:45:14.862 INFO  <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Connected to database [data_warehouse] (commit=1000)
+2026-04-17 23:45:14.982 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Header row skipped in file '/data/raw/water_potability.csv'
+2026-04-17 23:45:15.861 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026-04-17 23:45:15.866 INFO  <water_etl_pipeline - If field value is null> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:15.876 INFO  <water_etl_pipeline - Number range> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:15.894 INFO  <water_etl_pipeline - Number range 2> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:15.896 INFO  <water_etl_pipeline - update dim_hardness> [/etl/water_etl_pipeline.ktr]  Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:15.906 INFO  <water_etl_pipeline - update dim_acidity> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:17.297 INFO  <water_etl_pipeline - Dim_potability lookup> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:17.679 INFO  <water_etl_pipeline - update fact> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:45:17.699 INFO  <main> [/etl/water_etl_pipeline.ktr]   
+2026-04-17 23:45:17.700 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step CSV file input.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.701 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step If field value is null.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.702 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.702 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_hardness.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.703 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range 2.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.703 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_acidity.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.704 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Dim_potability lookup.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:45:17.705 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update fact.0 ended successfully, processed 3276 lines. ( 1092 lines/s)
+2026-04-17 23:53:05.660 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:53:06.580 INFO  <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Connected to database [data_warehouse] (commit=1000)
+2026-04-17 23:53:06.757 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Header row skipped in file '/data/raw/water_potability.csv'
+2026-04-17 23:53:07.644 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026-04-17 23:53:07.655 INFO  <water_etl_pipeline - If field value is null> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:07.694 INFO  <water_etl_pipeline - Number range> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:07.727 INFO  <water_etl_pipeline - Number range 2> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:07.727 INFO  <water_etl_pipeline - update dim_hardness> [/etl/water_etl_pipeline.ktr]  Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:07.753 INFO  <water_etl_pipeline - update dim_acidity> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:09.313 INFO  <water_etl_pipeline - Dim_potability lookup> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:09.706 INFO  <water_etl_pipeline - update fact> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:53:09.721 INFO  <main> [/etl/water_etl_pipeline.ktr]   
+2026-04-17 23:53:09.722 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step CSV file input.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.723 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step If field value is null.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.724 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.725 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_hardness.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.725 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range 2.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.728 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_acidity.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.729 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Dim_potability lookup.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:53:09.730 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update fact.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:40.322 INFO  <main> [/etl/water_etl_pipeline.ktr]  Dispatching started for transformation [water_etl_pipeline]
+2026-04-17 23:56:41.594 INFO  <init of update fact.0 (Thread-13)> [/etl/water_etl_pipeline.ktr]  Connected to database [data_warehouse] (commit=1000)
+2026-04-17 23:56:41.808 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Header row skipped in file '/data/raw/water_potability.csv'
+2026-04-17 23:56:43.070 INFO  <water_etl_pipeline - CSV file input> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026-04-17 23:56:43.081 INFO  <water_etl_pipeline - If field value is null> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:43.096 INFO  <water_etl_pipeline - Number range> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:43.142 INFO  <water_etl_pipeline - update dim_hardness> [/etl/water_etl_pipeline.ktr]  Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:43.155 INFO  <water_etl_pipeline - Number range 2> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:43.166 INFO  <water_etl_pipeline - update dim_acidity> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:44.739 INFO  <water_etl_pipeline - Dim_potability lookup> [/etl/water_etl_pipeline.ktr]  Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:45.136 INFO  <water_etl_pipeline - update fact> [/etl/water_etl_pipeline.ktr]  Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026-04-17 23:56:45.149 INFO  <main> [/etl/water_etl_pipeline.ktr]   
+2026-04-17 23:56:45.150 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step CSV file input.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.151 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step If field value is null.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.152 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.153 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_hardness.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.154 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Number range 2.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.155 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update dim_acidity.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.156 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step Dim_potability lookup.0 ended successfully, processed 3276 lines. ( 819 lines/s)
+2026-04-17 23:56:45.156 INFO  <main> [/etl/water_etl_pipeline.ktr]  Step update fact.0 ended successfully, processed 3276 lines. ( 819 lines/s)

@@ -1,12 +1,1 @@
-# Ignore java folder
-java/
-
-# Ignore pentaho folder
-pentaho/
-
 frontend/node_modules/
-
-# Ignore all CSV files
-*.csv
-data/raw/*.csv
-data/processed/*.csv

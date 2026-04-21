@@ -1,212 +1,214 @@
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
-
-const models = [
-  'Random Forest',
-  'Decision Tree',
-  'Support Vector Machine (SVM)',
-  'Gradient Boosting',
-  'Logistic Regression',
-  'K-Nearest Neighbors (KNN)'
-];
-
-const features = [
-  'ph',
-  'Hardness',
-  'Solids',
-  'Chloramines',
-  'Sulfate',
-  'Conductivity',
-  'Organic_carbon',
-  'Trihalomethanes',
-  'Turbidity'
-];
+import React, { useState, useMemo } from 'react';
+// Đảm bảo file json nằm đúng đường dẫn frontend/src/app/data/
+import edaData from '../data/eda_results.json'; 
 
 export function MLTab() {
-  const [selectedModel, setSelectedModel] = useState('Random Forest');
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(features);
-  const [testSize, setTestSize] = useState(20);
-  const [randomSeed, setRandomSeed] = useState(42);
-  const [numTrees, setNumTrees] = useState(100);
-  const [maxDepth, setMaxDepth] = useState(10);
-  const [trained, setTrained] = useState(false);
+  const [formData, setFormData] = useState({
+    ph: 7.0, Hardness: 150, Solids: 20000, Chloramines: 7.0,
+    Sulfate: 300, Conductivity: 400, Organic_carbon: 15,
+    Trihalomethanes: 60, Turbidity: 4.0
+  });
 
-  const handleFeatureToggle = (feature: string) => {
-    if (selectedFeatures.includes(feature)) {
-      setSelectedFeatures(selectedFeatures.filter(f => f !== feature));
-    } else {
-      setSelectedFeatures([...selectedFeatures, feature]);
+  const [prediction, setPrediction] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  // Lấy giá trị min/max tự động từ bộ dataset
+  const ranges = useMemo(() => {
+    const data = edaData.data;
+    const computedRanges: Record<string, { min: number, max: number }> = {
+      ph: { min: Infinity, max: -Infinity },
+      Hardness: { min: Infinity, max: -Infinity },
+      Solids: { min: Infinity, max: -Infinity },
+      Chloramines: { min: Infinity, max: -Infinity },
+      Sulfate: { min: Infinity, max: -Infinity },
+      Conductivity: { min: Infinity, max: -Infinity },
+      Organic_carbon: { min: Infinity, max: -Infinity },
+      Trihalomethanes: { min: Infinity, max: -Infinity },
+      Turbidity: { min: Infinity, max: -Infinity }
+    };
+
+    data.forEach((row: any) => {
+      Object.keys(computedRanges).forEach((key) => {
+        const val = row[key];
+        if (val !== undefined && val !== null) {
+          if (val < computedRanges[key].min) computedRanges[key].min = val;
+          if (val > computedRanges[key].max) computedRanges[key].max = val;
+        }
+      });
+    });
+
+    return computedRanges;
+  }, []);
+
+  // Hàm xử lý thay đổi value và đồng bộ hóa Max/Min
+  const handleChange = (key: string, value: string) => {
+    if (value === '') {
+      setFormData(prev => ({ ...prev, [key]: 0 }));
+      return;
+    }
+
+    let val = parseFloat(value);
+    const { min, max } = ranges[key];
+
+    // Tự động set lại về max/min nếu nhập ngoài khoảng
+    if (!isNaN(val)) {
+      if (val < min) val = min;
+      if (val > max) val = max;
+    }
+
+    setFormData(prev => ({
+      ...prev,
+      [key]: val
+    }));
+  };
+
+  const calculateKeys = () => {
+    let acidity = 2; 
+    if (formData.ph < 6.5) acidity = 1;
+    else if (formData.ph > 8.5) acidity = 3;
+
+    let hardness = 4;
+    if (formData.Hardness < 60) hardness = 1;
+    else if (formData.Hardness < 120) hardness = 2;
+    else if (formData.Hardness < 180) hardness = 3;
+
+    return { acidity, hardness };
+  };
+
+  const handlePredict = async () => {
+    setLoading(true);
+    const { acidity, hardness } = calculateKeys();
+    
+    const payload = {
+      solids: formData.Solids,
+      chloramines: formData.Chloramines,
+      sulfate: formData.Sulfate,
+      conductivity: formData.Conductivity,
+      organic_carbon: formData.Organic_carbon,
+      trihalomethanes: formData.Trihalomethanes,
+      turbidity: formData.Turbidity,
+      acidity_key: acidity,
+      hardness_key: hardness
+    };
+
+    try {
+      const response = await fetch('http://localhost:8000/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      setPrediction(data.potability);
+    } catch (error) {
+      alert("Lỗi kết nối API! Hãy kiểm tra Backend.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleTrain = () => {
-    setTrained(true);
-  };
-
   return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-gray-800">Huấn Luyện Mô Hình ML / Xác Định Độ An Toàn</h1>
-      {/* Section 2: Model & Parameters */}
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Chọn Mô Hình & Tham Số</h2>
+    <div className="p-6 bg-gray-50 min-h-screen">
+      <div className="max-w-5xl mx-auto space-y-6">
+        <h1 className="text-3xl font-bold text-gray-800">Phân tích & Dự đoán Chất lượng nước</h1>
         
-        <div className="space-y-4">
-          {/* Model selector */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Chọn mô hình ML</label>
-            <div className="relative">
-              <select 
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg appearance-none bg-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                value={selectedModel}
-                onChange={(e) => setSelectedModel(e.target.value)}
-              >
-                {models.map(model => (
-                  <option key={model} value={model}>{model}</option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Cột nhập liệu (Chiếm 2 phần) */}
+          <div className="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200 space-y-5">
+            <h2 className="font-semibold text-lg border-b pb-2 mb-4">Thông số đầu vào</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+              {Object.keys(formData).map((key) => {
+                const currentValue = formData[key as keyof typeof formData];
+                const { min, max } = ranges[key];
+                const step = key === 'Solids' ? "1" : "0.01";
+
+                return (
+                  <div key={key} className="space-y-2">
+                    <label className="text-sm font-medium text-gray-700 block capitalize">
+                      {key.replace('_', ' ')} 
+                      <span className="text-xs font-normal text-gray-400 ml-2">({min.toFixed(1)} - {max.toFixed(1)})</span>
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="range"
+                        min={min}
+                        max={max}
+                        step={step}
+                        value={currentValue}
+                        onChange={(e) => handleChange(key, e.target.value)}
+                        className="flex-1 h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                      />
+                      <input
+                        type="number"
+                        min={min}
+                        max={max}
+                        step={step}
+                        value={currentValue === 0 ? '' : currentValue}
+                        onChange={(e) => handleChange(key, e.target.value)}
+                        className="w-20 px-2 py-1 text-sm border border-gray-300 rounded-md shadow-sm focus:ring-1 focus:ring-blue-500 text-center"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+            <button 
+              onClick={handlePredict}
+              disabled={loading}
+              className="w-full bg-blue-600 text-white py-3 mt-4 rounded-lg font-bold hover:bg-blue-700 transition shadow-md"
+            >
+              {loading ? "ĐANG XỬ LÝ..." : "XỬ LÝ DỰ ĐOÁN"}
+            </button>
           </div>
 
-          {/* Dynamic parameters based on selected model */}
-          {selectedModel === 'Random Forest' && (
-            <div className="space-y-4 p-4 bg-cyan-50 rounded-lg">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Số cây: {numTrees}
-                </label>
-                <input
-                  type="range"
-                  min="10"
-                  max="500"
-                  value={numTrees}
-                  onChange={(e) => setNumTrees(Number(e.target.value))}
-                  className="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer accent-cyan-600"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Độ sâu tối đa: {maxDepth}
-                </label>
-                <input
-                  type="range"
-                  min="1"
-                  max="50"
-                  value={maxDepth}
-                  onChange={(e) => setMaxDepth(Number(e.target.value))}
-                  className="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer accent-cyan-600"
-                />
-              </div>
-            </div>
-          )}
-
-          {selectedModel === 'Decision Tree' && (
-            <div className="space-y-4 p-4 bg-cyan-50 rounded-lg">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Độ sâu tối đa: {maxDepth}
-                </label>
-                <input
-                  type="range"
-                  min="1"
-                  max="50"
-                  value={maxDepth}
-                  onChange={(e) => setMaxDepth(Number(e.target.value))}
-                  className="w-full h-2 bg-white rounded-lg appearance-none cursor-pointer accent-cyan-600"
-                />
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Section 3: Training & Results */}
-      <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Huấn Luyện & Kết Quả</h2>
-        
-        <button
-          onClick={handleTrain}
-          className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors mb-6"
-        >
-          Huấn Luyện Mô Hình
-        </button>
-
-        {trained && (
+          {/* Cột kết quả & Đánh giá (Chiếm 1 phần) */}
           <div className="space-y-6">
-            {/* Metrics Table */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Kết Quả Trên Tập Test</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-300">
-                  <thead>
-                    <tr className="bg-cyan-100">
-                      <th className="border border-gray-300 px-4 py-2 text-left">Độ đo</th>
-                      <th className="border border-gray-300 px-4 py-2 text-center">Giá trị</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2 font-medium">Accuracy (Độ chính xác)</td>
-                      <td className="border border-gray-300 px-4 py-2 text-center font-semibold text-cyan-700">0.6835</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-2 font-medium">Precision (Độ chính xác dương)</td>
-                      <td className="border border-gray-300 px-4 py-2 text-center font-semibold text-cyan-700">0.6721</td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2 font-medium">Recall (Độ nhạy)</td>
-                      <td className="border border-gray-300 px-4 py-2 text-center font-semibold text-cyan-700">0.6542</td>
-                    </tr>
-                    <tr className="bg-gray-50">
-                      <td className="border border-gray-300 px-4 py-2 font-medium">F1-Score</td>
-                      <td className="border border-gray-300 px-4 py-2 text-center font-semibold text-cyan-700">0.6630</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            {/* Card Dự đoán */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center justify-center min-h-[250px]">
+              {prediction === null ? (
+                <div className="text-center text-gray-400">
+                  <div className="text-4xl mb-2">📋</div>
+                  <p className="italic text-sm">Chưa có dữ liệu dự đoán</p>
+                </div>
+              ) : (
+                <div className="text-center animate-fade-in">
+                  <div className={`text-6xl mb-4 ${prediction === 1 ? 'text-green-500' : 'text-red-500'}`}>
+                    {prediction === 1 ? '💧' : '⚠️'}
+                  </div>
+                  <p className="text-gray-500 text-xs mt-2 uppercase tracking-widest">Kết quả phân tích</p>
+                  <h3 className={`text-2xl font-black ${prediction === 1 ? 'text-green-600' : 'text-red-600'}`}>
+                    {prediction === 1 ? "AN TOÀN" : "KHÔNG AN TOÀN"}
+                  </h3>
+                </div>
+              )}
             </div>
 
-            {/* Confusion Matrix */}
-            <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Ma Trận Nhầm Lẫn (Confusion Matrix)</h3>
-              <div className="inline-block">
-                <table className="border-collapse border border-gray-300">
-                  <thead>
-                    <tr>
-                      <th className="border border-gray-300 px-4 py-2 bg-gray-100"></th>
-                      <th className="border border-gray-300 px-4 py-2 bg-cyan-100 text-center" colSpan={2}>Dự đoán</th>
-                    </tr>
-                    <tr>
-                      <th className="border border-gray-300 px-4 py-2 bg-gray-100"></th>
-                      <th className="border border-gray-300 px-4 py-2 bg-cyan-50 text-center">Không an toàn</th>
-                      <th className="border border-gray-300 px-4 py-2 bg-cyan-50 text-center">An toàn</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th className="border border-gray-300 px-4 py-2 bg-cyan-50 text-left" rowSpan={2}>Thực tế</th>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2 bg-cyan-50 font-medium">Không an toàn</td>
-                      <td className="border border-gray-300 px-6 py-3 text-center bg-green-100 font-semibold text-lg">256</td>
-                      <td className="border border-gray-300 px-6 py-3 text-center bg-red-100 font-semibold text-lg">108</td>
-                    </tr>
-                    <tr>
-                      <td></td>
-                      <td className="border border-gray-300 px-4 py-2 bg-cyan-50 font-medium">An toàn</td>
-                      <td className="border border-gray-300 px-6 py-3 text-center bg-red-100 font-semibold text-lg">99</td>
-                      <td className="border border-gray-300 px-6 py-3 text-center bg-green-100 font-semibold text-lg">193</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div className="mt-2 text-xs text-gray-600">
-                  <p>TN (True Negative): 256 | FP (False Positive): 108</p>
-                  <p>FN (False Negative): 99 | TP (True Positive): 193</p>
+            {/* Card Chỉ số Model (Hardcoded) */}
+            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+              <h3 className="font-bold text-gray-800 border-b pb-2 mb-4 text-sm uppercase tracking-wider">Đánh giá mô hình</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-3 bg-blue-50 rounded-lg border border-blue-100">
+                  <p className="text-[10px] text-blue-600 font-bold uppercase">Accuracy</p>
+                  <p className="text-xl font-black text-blue-800">80.77%</p>
+                </div>
+                <div className="p-3 bg-indigo-50 rounded-lg border border-indigo-100">
+                  <p className="text-[10px] text-indigo-600 font-bold uppercase">Precision</p>
+                  <p className="text-xl font-black text-indigo-800">98.22</p>
+                </div>
+                <div className="p-3 bg-purple-50 rounded-lg border border-purple-100">
+                  <p className="text-[10px] text-purple-600 font-bold uppercase">Recall</p>
+                  <p className="text-xl font-black text-purple-800">51.72</p>
+                </div>
+                <div className="p-3 bg-teal-50 rounded-lg border border-teal-100">
+                  <p className="text-[10px] text-teal-600 font-bold uppercase">F1-Score</p>
+                  <p className="text-xl font-black text-teal-800">67.76</p>
                 </div>
               </div>
+              <p className="text-[10px] text-gray-400 mt-4 text-center italic">
+                Model: Random Forest Classifier
+              </p>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
