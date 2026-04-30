@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Droplet, BarChart3, Brain, Network } from 'lucide-react';
 import { DashboardTab } from './components/DashboardTab';
-import { MLTab } from './components/MLTab';
-import { DLTab } from './components/DLTab';
 
-type TabType = 'dashboard' | 'ml' | 'dl';
+
+
+type TabType = 'dashboard' ;
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
@@ -39,31 +39,7 @@ export default function App() {
               }`}
             >
               <BarChart3 className="w-5 h-5" />
-              <span>Dashboard / Phân Tích</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('ml')}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                activeTab === 'ml'
-                  ? 'bg-cyan-100 text-cyan-700 font-semibold'
-                  : 'text-gray-700 hover:bg-gray-100'
-              }`}
-            >
-              <Brain className="w-5 h-5" />
-              <span>Huấn Luyện ML</span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('dl')}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                activeTab === 'dl'
-                  ? 'bg-cyan-100 text-cyan-700 font-semibold'
-                  : 'text-gray-700 hover:bg-gray-100'
-              }`}
-            >
-              <Network className="w-5 h-5" />
-              <span>Huấn Luyện Học Sâu</span>
+              <span>Dashboard</span>
             </button>
           </div>
         </nav>
@@ -78,8 +54,6 @@ export default function App() {
       <div className="flex-1 overflow-auto">
         <div className="p-8">
           {activeTab === 'dashboard' && <DashboardTab />}
-          {activeTab === 'ml' && <MLTab />}
-          {activeTab === 'dl' && <DLTab />}
         </div>
       </div>
     </div>

@@ -683,7 +683,7 @@
     <name>Dim_potability lookup</name>
     <type>DBLookup</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1086,7 +1086,7 @@
       <haspartno>N</haspartno>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <create_parent_folder>N</create_parent_folder>
+      <create_parent_folder>Y</create_parent_folder>
       <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
       <servlet_output>N</servlet_output>
     </file>
