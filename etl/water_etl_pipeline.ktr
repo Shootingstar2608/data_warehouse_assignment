@@ -436,14 +436,14 @@
   <notepads>
   </notepads>
   <connection>
-    <name>pentahoConnect</name>
-    <server>127.0.0.1</server>
+    <name>data_warehouse</name>
+    <server>db</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>water_pobability</database>
+    <database>data_warehouse</database>
     <port>5432</port>
-    <username>postgres</username>
-    <password>Encrypted 2be98af9802d291d6fd49f6228ec2fafa</password>
+    <username>admin</username>
+    <password>Encrypted 2be98afc86ad79397b80ea162dac3fd89</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -522,6 +522,11 @@
       <to>update fact</to>
       <enabled>Y</enabled>
     </hop>
+    <hop>
+      <from>Dim_potability lookup</from>
+      <to>JSON output</to>
+      <enabled>Y</enabled>
+    </hop>
   </order>
   <step>
     <name>CSV file input</name>
@@ -534,7 +539,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>/home/peter/data_warehouse_assignment/data/raw/water_potability.csv</filename>
+    <filename>/data/raw/water_potability.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -675,6 +680,54 @@
     </GUI>
   </step>
   <step>
+    <name>Dim_potability lookup</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>data_warehouse</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>public</schema>
+      <table>dim_potability</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>Potability</name>
+        <field>potability_key</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>potability_key</name>
+        <rename>fk_potability</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1040</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>If field value is null</name>
     <type>IfNull</type>
     <description/>
@@ -777,6 +830,98 @@
     </GUI>
   </step>
   <step>
+    <name>Number range 2</name>
+    <type>NumberRange</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <inputField>ph</inputField>
+    <outputField>Acidity_Category</outputField>
+    <fallBackValue>unknown</fallBackValue>
+    <rules>
+      <rule>
+        <lower_bound>-1.7976931348623157E308</lower_bound>
+        <upper_bound>6.5</upper_bound>
+        <value>Axit</value>
+      </rule>
+      <rule>
+        <lower_bound>6.5</lower_bound>
+        <upper_bound>8.5</upper_bound>
+        <value>Trung tính</value>
+      </rule>
+      <rule>
+        <lower_bound>8.5</lower_bound>
+        <upper_bound>1.7976931348623157E308</upper_bound>
+        <value>Kiềm</value>
+      </rule>
+    </rules>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>384</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>update dim_acidity</name>
+    <type>CombinationLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <schema>public</schema>
+    <table>dim_acidity</table>
+    <connection>data_warehouse</connection>
+    <commit>100</commit>
+    <cache_size>9999</cache_size>
+    <replace>N</replace>
+    <preloadCache>N</preloadCache>
+    <crc>N</crc>
+    <crcfield>hashcode</crcfield>
+    <fields>
+      <key>
+        <name>Acidity_Category</name>
+        <lookup>category</lookup>
+      </key>
+      <return>
+        <name>acidity_key</name>
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
+      </return>
+    </fields>
+    <sequence/>
+    <last_update_field/>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>816</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>update dim_hardness</name>
     <type>CombinationLookup</type>
     <description/>
@@ -789,7 +934,7 @@
     </partitioning>
     <schema>public</schema>
     <table>dim_hardness</table>
-    <connection>pentahoConnect</connection>
+    <connection>data_warehouse</connection>
     <commit>100</commit>
     <cache_size>9999</cache_size>
     <replace>N</replace>
@@ -834,7 +979,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>pentahoConnect</connection>
+    <connection>data_warehouse</connection>
     <schema/>
     <table>fact_water_sample</table>
     <commit>1000</commit>
@@ -910,106 +1055,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1312</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Number range 2</name>
-    <type>NumberRange</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <inputField>ph</inputField>
-    <outputField>Acidity_Category</outputField>
-    <fallBackValue>unknown</fallBackValue>
-    <rules>
-      <rule>
-        <lower_bound>-1.7976931348623157E308</lower_bound>
-        <upper_bound>6.5</upper_bound>
-        <value>Axit</value>
-      </rule>
-      <rule>
-        <lower_bound>6.5</lower_bound>
-        <upper_bound>8.5</upper_bound>
-        <value>Trung tính</value>
-      </rule>
-      <rule>
-        <lower_bound>8.5</lower_bound>
-        <upper_bound>1.7976931348623157E308</upper_bound>
-        <value>Kiềm</value>
-      </rule>
-    </rules>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>384</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>update dim_acidity</name>
-    <type>CombinationLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <schema>public</schema>
-    <table>dim_acidity</table>
-    <connection>pentahoConnect</connection>
-    <commit>100</commit>
-    <cache_size>9999</cache_size>
-    <replace>N</replace>
-    <preloadCache>N</preloadCache>
-    <crc>N</crc>
-    <crcfield>hashcode</crcfield>
-    <fields>
-      <key>
-        <name>Acidity_Category</name>
-        <lookup>category</lookup>
-      </key>
-      <return>
-        <name>acidity_key</name>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
-      </return>
-    </fields>
-    <sequence/>
-    <last_update_field/>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
+      <xloc>1264</xloc>
       <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Dim_potability lookup</name>
-    <type>DBLookup</type>
+    <name>JSON output</name>
+    <type>JsonOutput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1018,29 +1071,87 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <connection>pentahoConnect</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>public</schema>
-      <table>dim_potability</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
+    <outputValue>outputValue</outputValue>
+    <jsonBloc>data</jsonBloc>
+    <nrRowsInBloc/>
+    <operation_type>writetofile</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>N</addtoresult>
+    <file>
+      <name>/data/eda_results</name>
+      <extention>json</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>Y</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
+    </file>
+    <fields>
+      <field>
+        <name>ph</name>
+        <element>ph</element>
+      </field>
+      <field>
+        <name>Hardness</name>
+        <element>Hardness</element>
+      </field>
+      <field>
+        <name>Solids</name>
+        <element>Solids</element>
+      </field>
+      <field>
+        <name>Chloramines</name>
+        <element>Chloramines</element>
+      </field>
+      <field>
+        <name>Sulfate</name>
+        <element>Sulfate</element>
+      </field>
+      <field>
+        <name>Conductivity</name>
+        <element>Conductivity</element>
+      </field>
+      <field>
+        <name>Organic_carbon</name>
+        <element>Organic_carbon</element>
+      </field>
+      <field>
+        <name>Trihalomethanes</name>
+        <element>Trihalomethanes</element>
+      </field>
+      <field>
+        <name>Turbidity</name>
+        <element>Turbidity</element>
+      </field>
+      <field>
         <name>Potability</name>
-        <field>potability_key</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>potability_key</name>
-        <rename>fk_potability</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
+        <element>Potability</element>
+      </field>
+      <field>
+        <name>Hardness_Category</name>
+        <element>Hardness_Category</element>
+      </field>
+      <field>
+        <name>hardness_key</name>
+        <element>hardness_key</element>
+      </field>
+      <field>
+        <name>Acidity_Category</name>
+        <element>Acidity_Category</element>
+      </field>
+      <field>
+        <name>acidity_key</name>
+        <element>acidity_key</element>
+      </field>
+      <field>
+        <name>fk_potability</name>
+        <element>fk_potability</element>
+      </field>
+    </fields>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -1051,7 +1162,7 @@
     </remotesteps>
     <GUI>
       <xloc>1040</xloc>
-      <yloc>512</yloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

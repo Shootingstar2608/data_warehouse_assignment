@@ -1,0 +1,83 @@
+2026/04/17 16:37:25 - Spoon - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : Unable to open browser tab
+2026/04/17 16:37:25 - Spoon - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : org.eclipse.swt.SWTError: No more handles because no underlying browser available.
+2026/04/17 16:37:25 - Spoon -    SWT on GTK 2.x detected. It is reccomended to use SWT on GTK 3.x and Webkit2 API.
+2026/04/17 16:37:25 - Spoon - 
+2026/04/17 16:37:25 - Spoon - 	at org.eclipse.swt.SWT.error(SWT.java:4621)
+2026/04/17 16:37:25 - Spoon - 	at org.eclipse.swt.browser.Browser.<init>(Browser.java:128)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.SpoonBrowser.createBrowser(SpoonBrowser.java:158)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.SpoonBrowser.<init>(SpoonBrowser.java:117)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.delegates.SpoonTabsDelegate.addSpoonBrowser(SpoonTabsDelegate.java:279)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.Spoon.addSpoonBrowser(Spoon.java:8996)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.Spoon.showWelcomePage(Spoon.java:1843)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.Spoon.init(Spoon.java:959)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.Spoon.createContents(Spoon.java:9506)
+2026/04/17 16:37:25 - Spoon - 	at org.eclipse.jface.window.Window.create(Window.java:431)
+2026/04/17 16:37:25 - Spoon - 	at org.eclipse.jface.window.Window.open(Window.java:788)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.Spoon.start(Spoon.java:9537)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.di.ui.spoon.Spoon.main(Spoon.java:722)
+2026/04/17 16:37:25 - Spoon - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2026/04/17 16:37:25 - Spoon - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+2026/04/17 16:37:25 - Spoon - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2026/04/17 16:37:25 - Spoon - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+2026/04/17 16:37:25 - Spoon - 	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : Could not open a browser
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - ERROR (version 9.4.0.0-343, build 0.0 from 2022-11-08 07.50.27 by buildguy) : org.eclipse.swt.SWTError: No more handles because no underlying browser available.
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 -    SWT on GTK 2.x detected. It is reccomended to use SWT on GTK 3.x and Webkit2 API.
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.eclipse.swt.SWT.error(SWT.java:4621)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.eclipse.swt.browser.Browser.<init>(Browser.java:128)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.pentaho.di.ui.util.EnvironmentUtils.getUserAgent(EnvironmentUtils.java:81)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.pentaho.di.ui.util.EnvironmentUtils.getBrowserName(EnvironmentUtils.java:183)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.pentaho.di.ui.spoon.Spoon.checkEnvironment(Spoon.java:9462)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.pentaho.di.ui.spoon.Spoon.start(Spoon.java:9538)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.pentaho.di.ui.spoon.Spoon.main(Spoon.java:722)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+2026/04/17 16:37:27 - org.pentaho.di.ui.util.EnvironmentUtils@5ed25612 - 	at org.pentaho.commons.launcher.Launcher.main(Launcher.java:92)
+Graphics2D from BufferedImage lacks BUFFERED_IMAGE hint
+2026/04/17 16:47:27 - Spoon - Transformation opened.
+2026/04/17 16:47:27 - Spoon - Launching transformation [water_etl_pipeline]...
+2026/04/17 16:47:27 - Spoon - Started the transformation execution.
+2026/04/17 16:47:27 - water_etl_pipeline - Dispatching started for transformation [water_etl_pipeline]
+2026/04/17 16:47:28 - update fact.0 - Connected to database [pentahoConnect] (commit=1000)
+2026/04/17 16:47:28 - Spoon - The transformation has finished!!
+2026/04/17 16:54:19 - Spoon - Transformation opened.
+2026/04/17 16:54:19 - Spoon - Launching transformation [water_etl_pipeline]...
+2026/04/17 16:54:19 - Spoon - Started the transformation execution.
+2026/04/17 16:54:19 - water_etl_pipeline - Dispatching started for transformation [water_etl_pipeline]
+2026/04/17 16:54:19 - update fact.0 - Connected to database [pentahoConnect] (commit=1000)
+2026/04/17 16:54:19 - Spoon - The transformation has finished!!
+2026/04/17 16:54:29 - Spoon - Transformation opened.
+2026/04/17 16:54:29 - Spoon - Launching transformation [water_etl_pipeline]...
+2026/04/17 16:54:29 - Spoon - Started the transformation execution.
+2026/04/17 16:54:29 - water_etl_pipeline - Dispatching started for transformation [water_etl_pipeline]
+2026/04/17 16:54:29 - update fact.0 - Connected to database [pentahoConnect] (commit=1000)
+2026/04/17 16:54:29 - CSV file input.0 - Header row skipped in file '/home/toon/data_warehouse_assignment/data/raw/water_potability.csv'
+2026/04/17 16:54:30 - CSV file input.0 - Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - If field value is null.0 - Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - Number range.0 - Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - Number range 2.0 - Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - update dim_hardness.0 - Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - update dim_acidity.0 - Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - Dim_potability lookup.0 - Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - update fact.0 - Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:30 - Spoon - The transformation has finished!!
+2026/04/17 16:54:51 - Spoon - Transformation opened.
+2026/04/17 16:54:51 - Spoon - Launching transformation [water_etl_pipeline]...
+2026/04/17 16:54:51 - Spoon - Started the transformation execution.
+2026/04/17 16:54:51 - water_etl_pipeline - Dispatching started for transformation [water_etl_pipeline]
+2026/04/17 16:54:51 - update fact.0 - Connected to database [pentahoConnect] (commit=1000)
+2026/04/17 16:54:51 - CSV file input.0 - Header row skipped in file '/home/toon/data_warehouse_assignment/data/raw/water_potability.csv'
+2026/04/17 16:54:51 - CSV file input.0 - Finished processing (I=3277, O=0, R=0, W=3276, U=0, E=0)
+2026/04/17 16:54:51 - If field value is null.0 - Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:51 - Number range.0 - Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:51 - update dim_hardness.0 - Finished processing (I=4, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:51 - Number range 2.0 - Finished processing (I=0, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:51 - update dim_acidity.0 - Finished processing (I=3, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:52 - Dim_potability lookup.0 - Finished processing (I=3276, O=0, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:52 - update fact.0 - Finished processing (I=0, O=3276, R=3276, W=3276, U=0, E=0)
+2026/04/17 16:54:52 - Spoon - The transformation has finished!!
+2026/04/17 18:41:48 - Spoon - Spoon  has ended.
+stopping

@@ -1,0 +1,4 @@
+pandas
+psycopg2-binary  # Để kết nối PostgreSQL
+sqlalchemy       # Thư viện ORM mạnh mẽ cho DB
+python-dotenv    # Quản lý biến môi trường

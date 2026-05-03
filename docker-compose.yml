@@ -1,0 +1,65 @@
+services:
+  # 1. Database: Nơi lưu trữ Data Warehouse
+  db:
+    image: postgres:15-alpine
+    container_name: dwh_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: data_warehouse
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d # Tự động chạy các file .sql trong thư mục sql khi khởi tạo
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. Frontend: Ứng dụng web
+  frontend:
+    build: ./frontend
+    container_name: dwh_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - db
+
+  # 3. Python ETL Worker 
+  etl_worker:
+    build:
+      context: ./etl
+      dockerfile: Dockerfile
+    container_name: dwh_etl
+    volumes:
+      - ./etl:/app
+      - ./data:/data  # Để script ETL có thể đọc dữ liệu từ folder data bên ngoài
+    environment:
+      - DATABASE_URL=postgresql://admin:password123@db:5432/data_warehouse
+    depends_on:
+      - db
+
+  pentaho:
+    build:
+      context: ./pentaho
+      dockerfile: Dockerfile
+    container_name: dwh_pentaho
+    volumes:
+      - ./pentaho:/app
+      - ./etl:/etl  # THÊM DÒNG NÀY: Mount thư mục etl vào trong container
+      - ./data:/data   # THÊM DÒNG NÀY: Chia sẻ thư mục data
+    environment:
+      # Đường dẫn Java mặc định trong image eclipse-temurin
+      - JAVA_HOME=/opt/java/openjdk
+      - PATH=$PATH:/opt/java/openjdk/bin
+    depends_on:
+      - db
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+
+
+volumes:
+  postgres_data:
