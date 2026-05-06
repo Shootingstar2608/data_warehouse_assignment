@@ -1,5 +1,6 @@
 import pandas as pd
 import joblib
+import json
 from sqlalchemy import create_engine
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
@@ -58,6 +59,9 @@ X_test_scaled = scaler.transform(X_test)
 # HUẤN LUYỆN 3 MÔ HÌNH (Bổ sung fine-tune)
 # Bố sung dò siêu tham số 
 # randomforest
+# lưu lại hyper_params tốt nhất ne
+best_params_log = {}
+
 print("Đang dò siêu tham số cho Random Forest...")
 rf_tuner = RandomizedSearchCV(
     estimator=RandomForestClassifier(),
@@ -147,5 +151,13 @@ for name, model in trained_models.items():
 
 print("\nĐang xuất các mô hình tốt nhất...")
 joblib.dump(trained_models["Random Forest"], 'Water_RandomForest_Model.pkl')
+joblib.dump(trained_models["XGBoost"], 'Water_XGBoost_Model.pkl')
 joblib.dump(trained_models["SVM"], 'Water_SVM_Model.pkl')
 joblib.dump(scaler, 'Water_Scaler_for_SVM.pkl')
+
+# lưu siêu tham số để xuất ra json
+best_params_log["Random Forest"] = rf_tuner.best_params_
+best_params_log["XGBoost"] = xgb_tuner.best_params_
+best_params_log["SVM"] = SVM_PARAMS # SVM không dò thì lấy thông số từ config đưa vô luôn cho đủ bảng
+with open('Best_Hyperparameters_Log.json', 'w', encoding='utf-8') as f:
+    json.dump(best_params_log, f, indent=4, ensure_ascii=False)
